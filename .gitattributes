@@ -1,2 +1,140 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+from tkinter import *
+from PIL import Image, ImageTk
+import customtkinter
+
+def more_info():
+    root.withdraw()
+    new_file=Toplevel(root)
+    new_file.title=('Page2')
+    new_file.geometry('600x600')
+    new_file.resizable(False, False)
+    new_file.configure(bg='#607274')
+
+    image=Image.open('img1.webp')
+    img=ImageTk.PhotoImage(image)
+    image_label=Label(new_file,image=img,width=350,height=150)
+    image_label.image=img
+    image_label.place(x=100,y=20)
+
+    Label(new_file,text='Marque:').place(x=150,y=200)
+    Label(new_file,text='Ford Focus').place(x=350,y=200)
+    Label(new_file,text='Modéle:').place(x=150,y=230)
+    Label(new_file,text='2023').place(x=350,y=230)
+    Label(new_file,text='Prix:').place(x=150,y=260)
+    Label(new_file,text='450 DH').place(x=350,y=260)
+    Label(new_file,text='Date de sortie:').place(x=150,y=290)
+    Label(new_file,text='12/01/2024').place(x=350,y=290)
+    Label(new_file,text='Date de retour:').place(x=150,y=320)
+    Label(new_file,text='20/01/2024').place(x=350,y=320)
+    def next():
+            new_file.withdraw()
+            login=Toplevel(new_file)
+            login.title('Page3')
+            login.geometry('600x700')
+            login.resizable(False, False)
+            login.configure(bg='#607274')
+            sing=Label(login,text="Sign in")
+            sing.place(x=250,y=5)
+            image=Image.open('log.png')
+            img=ImageTk.PhotoImage(image)
+            image_label=Label(login,image=img,width=100,height=100)
+            image_label.image=img
+            image_label.place(x=0,y=50)
+            Label(login,text="Nom & Prénom:").place(x=180,y=100)
+            Entry(login).place(x=280,y=100)
+            Label(login,text="CNI:").place(x=180,y=150)
+            Entry(login).place(x=280,y=150)
+            Label(login,text="Num de Rib:").place(x=180,y=200)
+            Entry(login).place(x=280,y=200)
+            Label(login,text="N de telephone:").place(x=180,y=250)
+            Entry(login).place(x=280,y=250)
+            Label(login,text="Date dedomande").place(x=180,y=300)
+            Entry(login).place(x=280,y=300)
+            Label(login,text="Date de retour:").place(x=180,y=350)
+            Entry(login).place(x=280,y=350)
+            Button(login,text="valider").place(x=400,y=450)
+    def back():
+        new_file.destroy()  # Close the current Toplevel (Page2)
+        root.deiconify()    # Show the main window (Page1)
+        
+    bt1=Button(new_file,text="Next",command=next)
+    bt1.place(x=500,y=470)
+    bt2=Button(new_file,text="Back",command=back)
+    bt2.place(x=500,y=500)
+
+    
+
+root = Tk()
+root.title('Page1')
+root.geometry('600x700')
+root.resizable(False,False)
+root.configure(bg='#607274')
+
+lab = Label(root, text='Cars', width=15, height=2, bg='#FAEED1')
+lab.place(x=250)
+
+image = Image.open('image1.jpg')
+img = ImageTk.PhotoImage(image)
+
+image_label = Label(root, image=img,width=350, height=150)
+image_label.image = img
+image_label.place(x=0,y=50)
+
+btn1=Button(root,text='more information',bg="#B2A59B",command=more_info)
+btn1.place(x=50,y=210)
+
+
+image = Image.open('image2.jpg')
+img = ImageTk.PhotoImage(image)
+
+image_label = Label(root, image=img, width=250, height=150)
+image_label.image = img
+image_label.place(x=0,y=250)
+
+btn2=Button(root,text='more information',bg="#B2A59B")
+btn2.place(x=50,y=410)
+
+image = Image.open('image3.jpeg')
+img = ImageTk.PhotoImage(image)
+
+image_label = Label(root, image=img, width=250, height=150)
+image_label.image = img
+image_label.place(x=0,y=450)
+
+btn3=Button(root,text='more information',bg="#B2A59B")
+btn3.place(x=50,y=610)
+
+image = Image.open('img1.webp')
+img = ImageTk.PhotoImage(image)
+
+image_label = Label(root, image=img, width=250, height=150)
+image_label.image = img
+image_label.place(x=300,y=50)
+
+btn1=Button(root,text='more information',bg="#B2A59B",command=more_info)
+btn1.place(x=370,y=210)
+
+
+image = Image.open('img2.jpeg')
+img = ImageTk.PhotoImage(image)
+
+image_label = Label(root, image=img, width=250, height=150)
+image_label.image = img
+image_label.place(x=300,y=250)
+
+btn2=Button(root,text='more information',bg="#B2A59B")
+btn2.place(x=370,y=410)
+
+image = Image.open('img3.webp')
+img = ImageTk.PhotoImage(image)
+
+image_label = Label(root, image=img, width=250, height=150)
+image_label.image = img
+image_label.place(x=300,y=450)
+
+btn3=Button(root,text='more information',bg="#B2A59B")
+btn3.place(x=370,y=610)
+
+
+
+root.mainloop()
